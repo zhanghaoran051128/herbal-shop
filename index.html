@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Herbal Shop — Brew & Serve</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 顶栏：店名 + 金币 + 日班倒计时 -->
+<header id="topbar">
+  <div class="logo">🏮 HERBAL&nbsp;SHOP <span class="logo-cn">百草堂</span></div>
+  <div class="res">
+    <span id="day-badge" class="timer">DAY 1</span>
+    <span id="coins" class="big">🪙 0</span>
+    <span id="merit" class="big merit">🔖 0</span>
+    <span id="shift-timer" class="timer">⏳ 5:00</span>
+    <button id="lang-btn" title="Language">🌐</button>
+    <button id="mute-btn" title="Sound on/off">🔊</button>
+    <button id="reset-btn" title="Reset all progress">↺</button>
+  </div>
+</header>
+
+<!-- 单屏店铺场景：百子柜墙 + 顾客 + 立体柜台 + 药材架 -->
+<main id="scene">
+  <!-- 上半：店面墙 + 顾客队列（站在柜台后） -->
+  <div id="wall-zone">
+    <div id="shop-wall"></div>
+    <span class="lantern l1">🏮</span>
+    <span class="lantern l2">🏮</span>
+    <div id="counter"></div>
+  </div>
+
+  <!-- 伪3D柜台：台面（泡茶台） + 正面（茶杯） -->
+  <div id="counter3d">
+    <div id="counter-top">
+      <div id="brew-zone">
+        <div class="station" id="tank"></div>
+        <div class="station" id="teapot"></div>
+        <div class="station" id="stove"></div>
+      </div>
+    </div>
+    <div id="counter-front">
+      <div id="cups"></div>
+    </div>
+  </div>
+
+  <!-- 底部：药材架横条 -->
+  <div id="shelf-strip">
+    <div id="shelf"></div>
+  </div>
+</main>
+
+<!-- 右侧圆形菜单：药方书 / 升级 / 药材解锁 -->
+<div id="menu-btns">
+  <button id="mb-book" class="mbtn">📖<span>Book</span></button>
+  <button id="mb-upg" class="mbtn">⭐<span>Shop</span></button>
+  <button id="mb-unlock" class="mbtn">🌱<span>Herbs</span></button>
+</div>
+
+<!-- 弹层：药方书 -->
+<div id="modal-book" class="overlay hidden">
+  <div class="sheet">
+    <div class="sheet-head"><span class="panel-title" id="pt-book"></span><button class="sheet-x" data-close="modal-book">✕</button></div>
+    <div id="formula-list"></div>
+  </div>
+</div>
+
+<!-- 弹层：店铺升级 -->
+<div id="modal-upg" class="overlay hidden">
+  <div class="sheet">
+    <div class="sheet-head"><span class="panel-title" id="pt-upg"></span><button class="sheet-x" data-close="modal-upg">✕</button></div>
+    <div id="upgrade-list"></div>
+  </div>
+</div>
+
+<!-- 弹层：药材解锁 -->
+<div id="modal-unlock" class="overlay hidden">
+  <div class="sheet">
+    <div class="sheet-head"><span class="panel-title" id="pt-unlock"></span><button class="sheet-x" data-close="modal-unlock">✕</button></div>
+    <div id="herb-unlock"></div>
+  </div>
+</div>
+
+<!-- 爆点：爆单横幅 / 全屏闪光 -->
+<div id="rush-banner">🔥 RUSH HOUR 🔥 <b id="rush-cd">15</b></div>
+<div id="fx-flash"></div>
+
+<div id="toast-box"></div>
+
+<!-- 标题页 -->
+<div id="title-screen" class="overlay">
+  <div class="title-card">
+    <div class="title-logo">🏮</div>
+    <h1>HERBAL SHOP</h1>
+    <div class="title-cn">百 草 堂</div>
+    <p class="title-tag" id="title-tag-line"></p>
+    <div id="lang-wrap">
+      <div id="lang-title"></div>
+      <div id="lang-grid"></div>
+    </div>
+    <div id="title-stats"></div>
+    <button id="start-btn">🫖 Open Shop</button>
+    <button id="fresh-btn" class="hidden">↺ Start Over</button>
+  </div>
+</div>
+
+<!-- 打烊结算 -->
+<div id="day-end" class="overlay hidden">
+  <div class="end-card">
+    <div class="end-icon">🏮</div>
+    <h2 id="shop-closed-title">SHOP CLOSED</h2>
+    <p id="end-stats"></p>
+    <p class="end-flavor" id="end-flavor">The herbs rest. Progress is saved — unlock new herbs with 🔖 Merit anytime.</p>
+    <button id="restart-btn">🌅 Open Tomorrow</button>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
